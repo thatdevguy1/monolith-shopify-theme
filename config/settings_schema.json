@@ -45,5 +45,20 @@
         "label": "Header Logo Image"
       }
     ]
+  },
+  {
+    "name": "About Page",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "about_img",
+        "label": "About Page Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "about_hero_img",
+        "label": "About Page Hero Image"
+      }
+    ]
   }
 ]

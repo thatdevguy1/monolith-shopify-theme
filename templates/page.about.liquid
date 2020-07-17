@@ -1,0 +1,13 @@
+<section class="about">
+    <div class="about-us-hero">
+        <img class="about-hero-image" src="{{settings.about_hero_img | img_url: '1920x'}}" />
+    </div>
+    <div class="about-wrapper">
+        <div class="half about-image-holder">
+            <img class="about-image" src="{{settings.about_img | img_url: '1920x'}}" />
+        </div>
+        <div class="half text-holder">
+            {{page.content}}
+        </div>
+    </div>
+</section>

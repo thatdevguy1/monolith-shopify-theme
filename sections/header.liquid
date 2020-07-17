@@ -2,4 +2,29 @@
     <div id="logo">
         <img src="{{settings.logo_img | img_url: '1920'}}" />
     </div>
+    <div class="header-menu">
+        <ul class="navbar">
+            {% for link in linklists[section.settings.main_linklist].links %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{link.url}}">{{link.title}}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
 </div>
+
+{% schema %}
+
+{
+    "name": "Main Menu",
+    "settings": [
+        {
+            "type": "link_list",
+            "id": "main_linklist",
+            "label": "Menu",
+            "default": "main-menu"
+        }
+    ]
+}
+
+{% endschema %}

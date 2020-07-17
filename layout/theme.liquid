@@ -35,25 +35,21 @@
 
 </head>
 <body>
-  <div id="container">
-    {% section "header" %}
-    {% section "banner" %}
-    {% section "info" %}
-    {% section "homepage-products" %}
-    {% comment %} {% section "carousel" %} {% endcomment %}
-    {% section "footer" %}
-    {{ content_for_layout }}
+  {% section 'header' %}
+  {{ content_for_layout }}
+  {% section 'footer' %}
 
-     <script>
-      $(document).ready(function(){
-        $('#demo-carousel').carousel();
-        autoplay();
-        function autoplay() {
-          $('.carousel').carousel('next');
-          setTimeout(autoplay, 4500);
-        }
-      });
-    </script>
-  </div>
+  {{'theme.js' | asset_url | script_tag}}
+ 
+  {% comment %} <script>
+    $(document).ready(function(){
+      $('#demo-carousel').carousel();
+      autoplay();
+      function autoplay() {
+        $('.carousel').carousel('next');
+        setTimeout(autoplay, 4500);
+      }
+    });
+  </script> {% endcomment %}
 </body>
 </html>
