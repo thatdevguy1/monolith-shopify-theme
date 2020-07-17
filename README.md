@@ -1,2 +1,2 @@
 ### Monolith Shopify Theme
-Custom shopify theme created for the www.monolithgaming.com
+Custom shopify theme created for www.monolithgaming.com
