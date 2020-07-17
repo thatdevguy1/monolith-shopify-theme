@@ -1,0 +1,33 @@
+<div id="blurb-section" class="shadow">
+    <img class="banner-image" src="{{section.settings.banner_image | img_url: '1600x400'}}" />
+    <div id="information-wrapper">
+        <h2 class="card-h2">{{section.settings.banner_header}}</h2>
+        <p class="card-p">{{section.settings.banner_text}}</p>
+        <button class="card-button">Shop Now</button>
+    </div>
+</div>
+
+{% schema %}
+
+{
+    "name": "Banner",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "banner_image",
+        "label": "Banner Image"
+      },
+      {
+        "type": "text",
+        "id": "banner_header",
+        "label": "Banner Header"
+      },
+      {
+        "type": "text",
+        "id": "banner_text",
+        "label": "Banner text"
+      }
+    ]
+}
+
+{% endschema %}

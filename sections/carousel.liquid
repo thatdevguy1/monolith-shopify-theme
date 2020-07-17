@@ -1,0 +1,44 @@
+ <div id="insta-carousel-section">
+    <div class="carousel shadow" id="demo-carousel">
+        <a class="carousel-item" href="#one!"><img src="{{section.settings.carousel_image1 | img_url: '1920x'}}"></a>
+        <a class="carousel-item" href="#two!"><img src="{{section.settings.carousel_image2| img_url: '1920x'}}"></a>
+        <a class="carousel-item" href="#three!"><img src="{{section.settings.carousel_image3 | img_url: '1920x'}}"></a>
+        <a class="carousel-item" href="#four!"><img src="{{section.settings.carousel_image4 | img_url: '1920x'}}"></a>
+        <a class="carousel-item" href="#four!"><img src="{{section.settings.carousel_image5 | img_url: '1920x'}}"></a>
+    </div>    
+</div>
+
+{% schema %}
+
+{
+    "name": "Carousel",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "carousel_image1",
+        "label": "Carousel Image One"
+      },
+      {
+        "type": "image_picker",
+        "id": "carousel_image2",
+        "label": "Carousel Image Two"
+      },
+      {
+        "type": "image_picker",
+        "id": "carousel_image3",
+        "label": "Carousel Image Three"
+      },
+      {
+        "type": "image_picker",
+        "id": "carousel_image4",
+        "label": "Carousel Image Four"
+      },
+      {
+        "type": "image_picker",
+        "id": "carousel_image5",
+        "label": "Carousel Image Five"
+      }
+    ]
+}
+
+{% endschema %}

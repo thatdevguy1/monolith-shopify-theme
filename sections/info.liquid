@@ -1,0 +1,28 @@
+<div id="size-section">
+    <div class="size-section-cb shadow">
+       <img src="{{section.settings.info_image1 | img_url: '1920x'}}" />
+    </div>
+    <div class="size-section-cb shadow">
+        <img src="{{section.settings.info_image2 | img_url: '1920x'}}" />
+    </div>
+</div>
+
+{% schema %}
+
+{
+    "name": "Info Cards",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "info_image1",
+        "label": "Info Image One"
+      },
+     {
+        "type": "image_picker",
+        "id": "info_image2",
+        "label": "Info Image Two"
+      }
+    ]
+}
+
+{% endschema %}

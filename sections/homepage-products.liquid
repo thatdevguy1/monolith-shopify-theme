@@ -1,0 +1,47 @@
+{% assign collection = collections[section.settings.collection] %}
+
+<div id="mousepad-section">
+    {% for product in collection.products limit: section.settings.product_limit %}
+    <div class="tile shadow">
+        <a href="{{ product.url }}">
+            <div class="image-holder">
+                <img class="product-homepage-image" src="{{ product.featured_image.src | img_url: '1920x' }}" alt="">
+            </div>
+        </a>
+            <div class="item-info">
+                <a href="{{ product.url }}">
+                    <h4>{{ product.title }}</h4>
+                </a>
+                <span>{{ product.price | money }}</span>
+                {% comment %} <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>     {% endcomment %}
+            </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% schema %}
+{
+    "name": "Homepage Products",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Product Name",
+            "default": "Mousepads"
+        },
+        {
+            "type": "collection",
+            "id": "collection",
+            "label": "Collection"
+        },
+        {
+            "type": "range",
+            "id": "product_limit",
+            "label": "Product Limit",
+            "min": 3,
+            "max": 18,
+            "default": 9
+        }
+    ]
+}
+{% endschema %}
