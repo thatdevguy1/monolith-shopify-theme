@@ -1,5 +1,7 @@
-<div id="blurb-section" class="shadow">
-    <img class="banner-image" src="{{section.settings.banner_image | img_url: '1600x400'}}" />
+<div id="blurb-section" class="carousel shadow" style = "height: auto">
+    <img class="banner-image carousel-item" src="{{section.settings.banner_image | img_url: '1600x400'}}" />
+    <img class="banner-image carousel-item" src="{{section.settings.banner_image2 | img_url: '1600x400'}}" />
+    <img class="banner-image carousel-item" src="{{section.settings.banner_image3 | img_url: '1600x400'}}" />
     <div id="information-wrapper">
         <h2 class="card-h2">{{section.settings.banner_header}}</h2>
         <p class="card-p">{{section.settings.banner_text}}</p>
@@ -15,7 +17,17 @@
       {
         "type": "image_picker",
         "id": "banner_image",
-        "label": "Banner Image"
+        "label": "Banner Image One"
+      },
+      {
+        "type": "image_picker",
+        "id": "banner_image2",
+        "label": "Banner Image Two"
+      },
+      {
+        "type": "image_picker",
+        "id": "banner_image3",
+        "label": "Banner Image Three"
       },
       {
         "type": "text",
@@ -31,3 +43,16 @@
 }
 
 {% endschema %}
+
+<script>
+
+ $('#blurb-section').carousel({
+      fullWidth: true
+    });
+  autoplay();
+  function autoplay() {
+    $('.carousel').carousel('next');
+    setTimeout(autoplay, 4500);
+  }
+
+</script>
