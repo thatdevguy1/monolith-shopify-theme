@@ -225,6 +225,40 @@ p{
     font-weight: 400;
 }
 
+//CONTACT US PAGE
+.contact-form{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.contact-heading{
+    text-align: center;
+}
+
+.form-wrapper{
+    margin-bottom: 125px;
+}
+
+form{
+    width: 60vw;
+    display:flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.shopify-challenge__container{
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.shopify-challenge__container > form{
+    width: auto;
+}
+
+
 @media only screen and (max-width: 1350px){
     .card-h2{
         font-size: 4rem;

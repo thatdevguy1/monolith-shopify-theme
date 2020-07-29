@@ -1,31 +1,27 @@
-<div class="contact-form">
+<div class="contact-form" style="height: 80vh; display: flex; flex-direction: row; justify-content: space-around">
     {% form 'contact' %}
-        {% if form.posted successfully? %}
-            <p class="form-success">
-                Sent Successfully
-            </p>
-        {% endif %}
-        
-        {{ form.errors | default_errors }}
-        
-        <div class="row">
-            <div class="input-field col s6">
-                <input id="contactFormName" type="text" class="validate" name="contact[name]">
-                <label class="active" for="contactFormName">Name</label>
+    <h2 class="contact-heading">CONTACT US</h2>
+        <div class="form-wrapper">
+            {{ form.errors | default_errors }}
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="contactFormName" type="text" class="validate" name="contact[name]">
+                    <label class="active" for="contactFormName">Name</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="contactFormEmail" type="text" class="validate" name="contact[email]">
+                    <label class="active" for="contactFormEmail">Email</label>
+                </div>
             </div>
-            <div class="input-field col s6">
-                <input id="contactFormEmail" type="text" class="validate" name="contact[email]">
-                <label class="active" for="contactFormEmail">Email</label>
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="contactFormMessage" type="text" class="materialize-textarea" name="contact[body]"></textarea>
+                    <label class="active" for="contactFormMessage">Message</label>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s6">
-                <textarea id="contactFormName" type="text" class="validate" name="contact[body]">
-                <label class="active" for="contactFormName">Name</label>
+            <div class="row">
+                <input type="submit" class="btn" value="Submit">
             </div>
-        </div>
-        <div class="row">
-            <input type="submit" class="btn" value="{{ 'contact.form.send' | t }}">
         </div>
     {% endform %}
 </div>
