@@ -47,6 +47,7 @@
 {% endschema %}
 
 <script>
+var size = 'm508';
     function goToAmazon(name, size){
 
         var linkString;
@@ -118,18 +119,49 @@
 
         return linkString;
     };
+
+    //Find the right element in the array that contains the name of the item we are looking for
+    function matchTitles(prod1Name, prod2Obj){
+            var match = prod2Obj.products.filter(product => product.title.toLowerCase() == prod1Name);
+            return match[0];
+    };
     
     var items = document.querySelectorAll(".tile");
    
-    items.forEach( item => {
-        var productName = item.querySelector(".product-title").innerText.toLowerCase(); 
-        console.log(productName == "wake up call");
-        var link = goToAmazon(productName, 'm508');
-        item.querySelectorAll(".amazon-link").forEach( aTag => {
-            console.log(link);
-            aTag.href = link;
-        })
-        
+    //Sets amazon link to the title and image of each homepage product ALSO changes the image to whatever size is selected
+    function setAmazonLinks(prod){
+        console.log(prod);
+        items.forEach( (item, index) => {
+            var productName = item.querySelector(".product-title").innerText.toLowerCase();
+            if(prod){
+                var matchedObj = matchTitles(productName, prod);
+                item.querySelector(".product-homepage-image").src = matchedObj.images[0].src;
+            };
+            
+            var link = goToAmazon(productName, size);
+            item.querySelectorAll(".amazon-link").forEach( aTag => {
+                aTag.href = link;
+            });
+        });
+    };
+
+    var m330Info = document.querySelector("#m330");
+    var m508Info = document.querySelector("#m508");
+
+    m330Info.addEventListener("click", () => {
+        size = 'm330';
+        $.getJSON('/collections/mousepads/products.json', function(product){
+            setAmazonLinks(product);
+        });
     });
 
+    m508Info.addEventListener("click", () => {
+        console.log("m508 clicked");
+        size = 'm508';
+        $.getJSON('/collections/mousepads-508/products.json', function(product){
+            setAmazonLinks(product);
+        });
+    });
+
+    setAmazonLinks();
 </script>

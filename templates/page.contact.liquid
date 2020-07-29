@@ -1,0 +1,31 @@
+<div class="contact-form">
+    {% form 'contact' %}
+        {% if form.posted successfully? %}
+            <p class="form-success">
+                Sent Successfully
+            </p>
+        {% endif %}
+        
+        {{ form.errors | default_errors }}
+        
+        <div class="row">
+            <div class="input-field col s6">
+                <input id="contactFormName" type="text" class="validate" name="contact[name]">
+                <label class="active" for="contactFormName">Name</label>
+            </div>
+            <div class="input-field col s6">
+                <input id="contactFormEmail" type="text" class="validate" name="contact[email]">
+                <label class="active" for="contactFormEmail">Email</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <textarea id="contactFormName" type="text" class="validate" name="contact[body]">
+                <label class="active" for="contactFormName">Name</label>
+            </div>
+        </div>
+        <div class="row">
+            <input type="submit" class="btn" value="{{ 'contact.form.send' | t }}">
+        </div>
+    {% endform %}
+</div>
